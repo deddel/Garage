@@ -26,13 +26,13 @@ namespace Garage.UI
                     + "\n0. Exit the application");
         }
 
-        internal char MenuChoice()
+        public char MenuChoice()
         {
             char input = ' '; //Creates the character input to be used with the switch-case below.
-            try
+            try //Tries to set input to the first char in an input line
             {
                 Console.Write("\nEnter Your Choice (0-5): ");
-                input = Console.ReadLine()![0]; //Tries to set input to the first char in an input line
+                input = Console.ReadLine()![0]; 
                 return input;
             }
             catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.

@@ -12,6 +12,6 @@ namespace Garage.Vehicles
 {
     public interface IVehicle
     {
-        
+        string ToString();
     }
 }

@@ -17,16 +17,15 @@ namespace Garage
             //s[1] = null;
             //Console.WriteLine(s[1]);
 
-            // 
-            var ui = new UI.ConsoleUI();
-            
+            // Initiate app
+            ConsoleUI ui = new();
+            GarageHandler.GarageHandler gh = new ();
             //Testcode
             var myGarage = new Garage<Vehicle>(5);
             Vehicle myVehicle1 = new Vehicle("TRU834", "red", 4);
             Vehicle myVehicle2 = new Vehicle("YTR475", "blue", 4);
             Vehicle myVehicle3 = new Vehicle("UJE345", "silver", 4);
             Vehicle myVehicle4 = new Vehicle("IUY234", "green", 4);
-            Vehicle myV = null;
             myGarage.AddVehicle(myVehicle1);
             myGarage.AddVehicle(myVehicle2);
             //Console.WriteLine(myGarage.IsFull);
@@ -50,7 +49,7 @@ namespace Garage
                 switch (input)
                 {
                     case '1':
-                        ;
+                        GarageHandler.GarageHandler.CreateNewGarage();
                         break;
                     case '2':
                         ;

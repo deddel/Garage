@@ -13,5 +13,7 @@ namespace Garage.UI
     public interface IUI
     {
         void DisplayMainMenu();
+
+        char MenuChoice();
     }
 }

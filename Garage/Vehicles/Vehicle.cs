@@ -12,7 +12,7 @@ using Garage.Vehicles;
 
 namespace Garage.Vehicles
 {
-    public class Vehicle
+    public class Vehicle: IVehicle
     {
         private string registrationId;
 
