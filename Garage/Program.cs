@@ -49,7 +49,7 @@ namespace Garage
                 switch (input)
                 {
                     case '1':
-                        GarageHandler.GarageHandler.CreateNewGarage();
+                        GarageHandler.GarageHandler.CreateNewGarage(                        GarageHandler.GarageHandler.GetTheGarage());
                         break;
                     case '2':
                         ;

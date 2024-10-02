@@ -13,13 +13,19 @@ namespace Garage.GarageHandler
 {
     public class GarageHandler
     {
-        public Garage<Vehicle>? TheGarage { get; }
+        //private Garage<Vehicle> theGarage;
 
-        public static void CreateNewGarage() //Where do I store the Garage-objects? In this class?
+        public static Garage<Vehicle>? TheGarage => CreateNewGarage();
+
+        //public static Garage<Vehicle> GetTheGarage()
+        //{
+        //    return TheGarage;
+        //}
+
+        public static Garage<Vehicle> CreateNewGarage() //Where do I store the Garage-objects?
         {
-            //Call UI members for a menu and choice
-            //Create Garage
-            //var myGarage = new Garage<Vehicle>(5);
+            Garage<Vehicle>  theGarage = new Garage<Vehicle>(5);
+            return theGarage;
         }
         
         public void ListAllVehicles() //UI+Garage methods
