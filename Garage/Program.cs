@@ -10,11 +10,38 @@ namespace Garage
     {
         static void Main(string[] args)
         {
+            //Testcode
+            //string?[] s = new string[5];
+            //s[0] = "3";
+            //s[1] = "7";
+            //s[1] = null;
+            //Console.WriteLine(s[1]);
+
+            // 
             var ui = new UI.ConsoleUI();
-            //var myGarage =new Garage<Vehicle>(5);
-            //foreach (var vehicle in myGarage) {
-            //    Console.WriteLine("test");
-            //}
+            
+            //Testcode
+            var myGarage = new Garage<Vehicle>(5);
+            Vehicle myVehicle1 = new Vehicle("TRU834", "red", 4);
+            Vehicle myVehicle2 = new Vehicle("YTR475", "blue", 4);
+            Vehicle myVehicle3 = new Vehicle("UJE345", "silver", 4);
+            Vehicle myVehicle4 = new Vehicle("IUY234", "green", 4);
+            Vehicle myV = null;
+            myGarage.AddVehicle(myVehicle1);
+            myGarage.AddVehicle(myVehicle2);
+            //Console.WriteLine(myGarage.IsFull);
+            //Console.WriteLine(myGarage.Count);
+            //myGarage.AddVehicle(myVehicle3)
+            //Console.WriteLine(myGarage.Count);
+            //Console.WriteLine(myGarage.IsFull);
+            //Console.WriteLine(myGarage.Count);
+            //myGarage.AddVehicle(myVehicle4);
+            //Console.WriteLine(myGarage.Count);
+            Console.WriteLine(myGarage.ToString());
+            myGarage.RemoveVehicle("TRU834");
+            Console.WriteLine(myGarage.ToString());
+            
+            
             while (true)
             {
                 ui.DisplayMainMenu();
