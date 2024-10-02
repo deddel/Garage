@@ -17,9 +17,10 @@ namespace Garage.UI
         public void DisplayMainMenu()
         {
                 Console.WriteLine("\nGARAGE - MAIN MENU");
-                Console.WriteLine("\n1. List all vehicles in the garage"
+                Console.WriteLine("" 
+                    + "\n1. List all vehicles in the garage"
                     + "\n2. List all vehicle types in the garage"
-                    + "\n3. Add vehicle to or Remove vehicles from the garage"
+                    + "\n3. Add vehicle to or Remove vehicle from the garage"
                     + "\n4. Find vehicles in the garage"
                     + "\n5. Create a new garage"
                     + "\n0. Exit the application");
@@ -36,8 +37,7 @@ namespace Garage.UI
             }
             catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
             {
-                Console.Clear();
-                //Console.WriteLine("Please enter some input!");
+                
                 return ' ';
             }
         }

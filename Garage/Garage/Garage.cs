@@ -26,7 +26,6 @@ namespace Garage.Garage
             foreach (T item in Vehicles)
             {
                 //Do something if needed
-                
                 yield return item;
             }
         }

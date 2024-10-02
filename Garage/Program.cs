@@ -41,6 +41,7 @@ namespace Garage
                         Environment.Exit(0);
                         break;
                     default:
+                        Console.Clear();
                         Console.WriteLine("Please enter some valid input (0, 1, 2, 3, 4)");
                         break;
                 }
