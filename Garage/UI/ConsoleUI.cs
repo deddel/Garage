@@ -41,5 +41,102 @@ namespace Garage.UI
                 return ' ';
             }
         }
+
+        public static void PrintMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        public static void ClearConsole()
+        {
+            Console.Clear();
+        }
+
+        public static string AskForString(string prompt)
+        {
+            bool success = false;
+            string answer;
+
+            do
+            {
+                Console.Write($"{prompt}:");
+                answer = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(answer))
+                {
+                    Console.WriteLine($"You must enter a valid {prompt}");
+                }
+                else
+                {
+                    success = true;
+                }
+
+            } while (!success);
+
+            return answer;
+        }
+
+        public static int AskForInt(string prompt)
+        {
+            do
+            {
+                string input = AskForString(prompt);
+                if (int.TryParse(input, out int result))
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine($"Please enter a valid {prompt}");
+                }
+
+
+            } while (true);
+        }
+
+        public static int AskForCapacity(string prompt)
+        {
+            do
+            {
+                string input = AskForString(prompt);
+                if (int.TryParse(input, out int result))
+                {
+                    if (result > 0)
+                    { 
+                        return result; 
+                    }
+                    else
+                    { 
+                        Console.WriteLine($"Please enter a valid {prompt}"); 
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Please enter a valid {prompt}");
+                }
+
+
+            } while (true);
+        }
+
+        public static uint AskForUInt(string prompt)
+        {
+            do
+            {
+                string input = AskForString(prompt);
+                if (uint.TryParse(input, out uint result))
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine($"Please enter a valid {prompt}");
+                }
+
+
+            } while (true);
+        }
     }
+
+
 }

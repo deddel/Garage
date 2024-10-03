@@ -32,6 +32,10 @@ namespace Garage.Garage
         {
             this.Vehicles[0] = new Vehicle("KKW479", "black", 4);
             this.Vehicles[1] = new Vehicle("PDS873", "black", 4);
+            this.Vehicles[2] = new Vehicle("TRU834", "red", 4);
+            this.Vehicles[3] = new Vehicle("YTR475", "blue", 4);
+            this.Vehicles[4] = new Vehicle("UJE345", "silver", 4);
+            this.Vehicles[5] = new Vehicle("IUY234", "green", 4);
         }
 
         public void AddVehicle(Vehicle v)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Garage;
 using Garage.Garage;
@@ -13,31 +14,29 @@ namespace Garage.GarageHandler
 {
     public class GarageHandler
     {
-        //private Garage<Vehicle> theGarage;
+        
 
-        public static Garage<Vehicle>? TheGarage => CreateNewGarage();
+        private static Garage<Vehicle>? theGarage;
 
-        //public static Garage<Vehicle> GetTheGarage()
-        //{
-        //    return TheGarage;
-        //}
-
-        public static Garage<Vehicle> CreateNewGarage() //Where do I store the Garage-objects?
+        public static Garage<Vehicle>? TheGarage { get => theGarage; set => theGarage = value; }
+        
+        public static void CreateNewGarage() 
         {
-            Garage<Vehicle>  theGarage = new Garage<Vehicle>(5);
-            return theGarage;
+            var capacity = ConsoleUI.AskForCapacity("Input the capacity > 10:");
+            theGarage = new Garage<Vehicle>(capacity);
+            ConsoleUI.PrintMessage($"Created a new Garage:\n{GarageHandler.theGarage}");
         }
         
-        public void ListAllVehicles() //UI+Garage methods
+        public static void ListAllVehicles() 
         {
-
+            ConsoleUI.PrintMessage($"{GarageHandler.theGarage}");
         }
 
-        public void ListAllVehicleTypes () { } //UI+Garage methods
+        public static void ListAllVehicleTypes () { } //UI+Garage methods
 
-        public void UpdateVehicles() { } //UI+Garage methods
+        public static void UpdateVehicles() { } //UI+Garage methods
 
-        public void SearchForVehicles() { } //UI+Garage object+LINQ
+        public static void SearchForVehicles() { } //UI+Garage object+LINQ
 
         
 
