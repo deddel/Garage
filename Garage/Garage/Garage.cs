@@ -30,12 +30,15 @@ namespace Garage.Garage
 
         private void SeedData()
         {
-            this.Vehicles[0] = new Vehicle("KKW479", "black", 4);
-            this.Vehicles[1] = new Vehicle("PDS873", "black", 4);
-            this.Vehicles[2] = new Vehicle("TRU834", "red", 4);
-            this.Vehicles[3] = new Vehicle("YTR475", "blue", 4);
-            this.Vehicles[4] = new Vehicle("UJE345", "silver", 4);
-            this.Vehicles[5] = new Vehicle("IUY234", "green", 4);
+            this.Vehicles[0] = new Car("KKW479", "blue", 4, "Diesel");
+            this.Vehicles[1] = new Car("PDS873", "black", 4, "Petrol");
+            this.Vehicles[2] = new Car("TRU834", "red", 4, "Petrol");
+            this.Vehicles[3] = new Car("UJE345", "silver", 4, "Petrol");
+            this.Vehicles[4] = new Motorcycle("IUY234", "red", 2, 750);
+            this.Vehicles[5] = new Motorcycle("IUY234", "yellow", 2, 125);
+            this.Vehicles[6] = new Bus("TRU834", "white", 6, 63);
+            this.Vehicles[7] = new Bus("YTR475", "red", 4, 46);
+            this.Vehicles[8] = new Bus("UJE345", "green", 4, 52);
         }
 
         public void AddVehicle(Vehicle v)
@@ -43,7 +46,7 @@ namespace Garage.Garage
             
             if (IsFull)
             {
-                Console.WriteLine("The Garage is full!");
+                ConsoleUI.PrintMessage("The Garage is full!");
             }
             else
             {
@@ -71,6 +74,25 @@ namespace Garage.Garage
             }
         }
 
+        public void ListAllTypes()
+        {
+            //var q = Vehicles
+            //    .Where(v => v != null)
+            //    .OrderBy(p => p?.GetType().Name ?? null)
+            //    .Select(p => p.GetType().Name)
+            var q = Vehicles
+                    .Where(v => v != null)
+                    .GroupBy(p => p?.GetType().Name ?? null);
+
+
+            //IEnumerable query = Vehicles.OrderBy(p => p?.RegistrationId ?? null);
+            foreach (var type in q)
+            {
+                ConsoleUI.PrintMessage($"{type.Key} : Antal {type.Count()}");
+            }
+        }
+        
+
         public IEnumerator<T> GetEnumerator()
         {
             foreach (T item in Vehicles)
@@ -90,7 +112,7 @@ namespace Garage.Garage
                     s = s + "\n" + item.ToString();
                 }
             }
-            return "List of parked cars: \n"+s;
+            return "List of parked vehicles: \n"+s;
         }
 
         public int Counter()

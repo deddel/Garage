@@ -22,23 +22,44 @@ namespace Garage.GarageHandler
         
         public static void CreateNewGarage() 
         {
-            var capacity = ConsoleUI.AskForCapacity("Input the capacity > 10:");
+            var capacity = ConsoleUI.AskForCapacity("Input the capacity (Minimum 9) :");
             theGarage = new Garage<Vehicle>(capacity);
-            ConsoleUI.PrintMessage($"Created a new Garage:\n{GarageHandler.theGarage}");
+            ConsoleUI.PrintMessage($"Created a new Garage:\n{theGarage}");
         }
         
         public static void ListAllVehicles() 
         {
-            ConsoleUI.PrintMessage($"{GarageHandler.theGarage}");
+            ConsoleUI.PrintMessage($"{theGarage}");
         }
 
-        public static void ListAllVehicleTypes () { } //UI+Garage methods
+        public static void ListAllVehicleTypes ()
+        {
 
-        public static void UpdateVehicles() { } //UI+Garage methods
+            //Metod i Garage
+            if (theGarage != null) 
+            {
+                theGarage.ListAllTypes();
+            }
+        } 
 
-        public static void SearchForVehicles() { } //UI+Garage object+LINQ
+        public static void UpdateVehicles() 
+        {
+            //Menu i UI
+            //Val i UI
+            if (theGarage != null)
+            {
+                theGarage.AddVehicle(new Bus("UJE345", "rosa", 4, 52));
+            }
+        }
 
-        
+        public static void SearchForVehicles() 
+        {
+            //Menu i UI
+            //Val i UI
+            //Metod i Garage
+        }
+
+
 
 
 

@@ -10,7 +10,18 @@ using Garage.Vehicles;
 
 namespace Garage.Vehicles
 {
-    public class Car
+    public class Car : Vehicle
     {
+        public Car(string registrationId, string color, int nrOfWheels, string fuelType) : base(registrationId, color, nrOfWheels)
+        {
+            FuelType = fuelType;
+        }
+
+        public string FuelType { get; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" Fuel Type: {FuelType}";
+        }
     }
 }

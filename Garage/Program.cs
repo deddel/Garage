@@ -21,26 +21,22 @@ namespace Garage
             ConsoleUI ui = new();
             //GarageHandler.GarageHandler gh = new ();
             ////Testcode
-            //var myGarage = new Garage<Vehicle>(5);
-            //Vehicle myVehicle1 = new Vehicle("TRU834", "red", 4);
-            //Vehicle myVehicle2 = new Vehicle("YTR475", "blue", 4);
-            //Vehicle myVehicle3 = new Vehicle("UJE345", "silver", 4);
-            //Vehicle myVehicle4 = new Vehicle("IUY234", "green", 4);
-            //myGarage.AddVehicle(myVehicle1);
-            //myGarage.AddVehicle(myVehicle2);
-            ////Console.WriteLine(myGarage.IsFull);
-            ////Console.WriteLine(myGarage.Count);
-            ////myGarage.AddVehicle(myVehicle3)
-            ////Console.WriteLine(myGarage.Count);
-            ////Console.WriteLine(myGarage.IsFull);
-            ////Console.WriteLine(myGarage.Count);
-            ////myGarage.AddVehicle(myVehicle4);
-            ////Console.WriteLine(myGarage.Count);
-            //Console.WriteLine(myGarage.ToString());
-            //myGarage.RemoveVehicle("TRU834");
-            //Console.WriteLine(myGarage.ToString());
+            //var myGarage = new Garage<Vehicle>(9);
             
-            
+            //myGarage.AddVehicle(new Car("KKW479", "blue", 4, "Diesel"));
+            //myGarage.AddVehicle(new Car("PDS873", "black", 4, "Petrol"));
+            //myGarage.AddVehicle(new Car("TRU834", "red", 4, "Petrol"));
+            //myGarage.AddVehicle(new Car("UJE345", "silver", 4, "Petrol"));
+            //myGarage.AddVehicle(new Motorcycle("IUY234", "red", 2, 750));
+            //myGarage.AddVehicle(new Motorcycle("IUY234", "yellow", 2, 125));
+            //myGarage.AddVehicle(new Bus("TRU834", "white", 6, 63));
+            //myGarage.AddVehicle(new Bus("YTR475", "red", 4, 46));
+            //myGarage.AddVehicle(new Bus("UJE345", "green", 4, 52));
+
+            //var query = from v in myGarage
+            //            where v.RegistrationID == "KKW479"
+            //            select v;
+
             while (true)
             {
                 ui.DisplayMainMenu();
@@ -49,18 +45,23 @@ namespace Garage
                 switch (input)
                 {
                     case '1':
+                        ConsoleUI.ClearConsole();
                         GarageHandler.GarageHandler.ListAllVehicles();
                         break;
                     case '2':
-                        ;
+                        ConsoleUI.ClearConsole();
+                        GarageHandler.GarageHandler.ListAllVehicleTypes();
                         break;
                     case '3':
-                        ;
+                        ConsoleUI.ClearConsole();
+                        GarageHandler.GarageHandler.UpdateVehicles();
                         break;
                     case '4':
-                        ;
+                        ConsoleUI.ClearConsole();
+                        GarageHandler.GarageHandler.SearchForVehicles();
                         break;
                     case '5':
+                        ConsoleUI.ClearConsole();
                         GarageHandler.GarageHandler.CreateNewGarage();
                         break;
                     case '0':
