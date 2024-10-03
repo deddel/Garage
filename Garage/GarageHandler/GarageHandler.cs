@@ -44,6 +44,7 @@ namespace Garage.GarageHandler
 
         public static void UpdateVehicles() 
         {
+            //TODO implement
             //Menu i UI
             //Val i UI
             if (theGarage != null)
@@ -54,6 +55,7 @@ namespace Garage.GarageHandler
 
         public static void SearchForVehicles() 
         {
+            //TODO Implement
             //Menu i UI
             //Val i UI
             //Metod i Garage

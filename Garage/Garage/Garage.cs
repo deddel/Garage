@@ -76,15 +76,14 @@ namespace Garage.Garage
 
         public void ListAllTypes()
         {
-            //var q = Vehicles
+            //TODO Clean up here
+            //var q = Vehicles 
             //    .Where(v => v != null)
             //    .OrderBy(p => p?.GetType().Name ?? null)
             //    .Select(p => p.GetType().Name)
             var q = Vehicles
                     .Where(v => v != null)
                     .GroupBy(p => p?.GetType().Name ?? null);
-
-
             //IEnumerable query = Vehicles.OrderBy(p => p?.RegistrationId ?? null);
             foreach (var type in q)
             {
