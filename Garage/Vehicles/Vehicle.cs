@@ -22,8 +22,8 @@ namespace Garage.Vehicles
 
         public Vehicle(string registrationId, string color, int nrOfWheels) 
         { 
-            this.registrationId = registrationId;
-            this.color = color;
+            this.registrationId = registrationId.ToUpper();
+            this.color = color.ToUpper();
             this.nrOfWheels = nrOfWheels;
         }
 

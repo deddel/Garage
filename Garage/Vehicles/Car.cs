@@ -14,7 +14,7 @@ namespace Garage.Vehicles
     {
         public Car(string registrationId, string color, int nrOfWheels, string fuelType) : base(registrationId, color, nrOfWheels)
         {
-            FuelType = fuelType;
+            FuelType = fuelType.ToUpper();
         }
 
         public string FuelType { get; }

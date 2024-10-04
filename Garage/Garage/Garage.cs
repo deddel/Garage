@@ -31,14 +31,14 @@ namespace Garage.Garage
         private void SeedData()
         {
             this.Vehicles[0] = new Car("KKW479", "blue", 4, "Diesel");
-            this.Vehicles[1] = new Car("PDS873", "black", 4, "Petrol");
+            this.Vehicles[1] = new Car("PDS873", "silver", 4, "Petrol");
             this.Vehicles[2] = new Car("TRU834", "red", 4, "Petrol");
-            this.Vehicles[3] = new Car("UJE345", "silver", 4, "Petrol");
+            this.Vehicles[3] = new Car("WKK974", "black", 4, "Petrol");
             this.Vehicles[4] = new Motorcycle("IUY234", "red", 2, 750);
-            this.Vehicles[5] = new Motorcycle("IUY234", "yellow", 2, 125);
+            this.Vehicles[5] = new Motorcycle("TOR734", "yellow", 2, 125);
             this.Vehicles[6] = new Bus("TRU834", "white", 6, 63);
             this.Vehicles[7] = new Bus("YTR475", "red", 4, 46);
-            this.Vehicles[8] = new Bus("UJE345", "green", 4, 52);
+            this.Vehicles[8] = new Bus("UJE348", "green", 4, 52);
         }
 
         public void AddVehicle(Vehicle v)
@@ -46,7 +46,7 @@ namespace Garage.Garage
             
             if (IsFull)
             {
-                ConsoleUI.PrintMessage("The Garage is full!");
+                ConsoleUI.PrintMessage("The Garage is full!"); 
             }
             else
             {
@@ -64,13 +64,20 @@ namespace Garage.Garage
 
         public void RemoveVehicle(string registrationId)
         {
-            for(int i = 0;i < Vehicles.Length; i++)
+            if (Vehicles != null)
             {
-                if (Vehicles[i].RegistrationId == registrationId)
+                bool isFound = false;
+                for (int i = 0; i < Vehicles.Length; i++)
                 {
-                    Vehicles[i] = null;
-                    break;
+                    if (Vehicles[i].RegistrationId == registrationId)
+                    {
+                        Vehicles[i] = null;
+                        isFound = true;
+                        break;
+                    }
                 }
+                if (!isFound)
+                    ConsoleUI.PrintMessage($"RegistrationID {registrationId} is not in the garage!");
             }
         }
 

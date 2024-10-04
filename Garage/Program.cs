@@ -40,7 +40,7 @@ namespace Garage
             while (true)
             {
                 ui.DisplayMainMenu();
-                char input = ui.MenuChoice();
+                char input = ConsoleUI.MenuChoice();
 
                 switch (input)
                 {
@@ -69,7 +69,7 @@ namespace Garage
                         break;
                     default:
                         ConsoleUI.ClearConsole();
-                        ConsoleUI.PrintMessage("Please enter some valid input (0, 1, 2, 3, 4)");
+                        ConsoleUI.PrintMessage("Please enter some valid input! (0, 1, 2, 3, 4)");
                         break;
                 }
             }

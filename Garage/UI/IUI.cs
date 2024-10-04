@@ -14,6 +14,6 @@ namespace Garage.UI
     {
         void DisplayMainMenu();
 
-        char MenuChoice();
+        //char MenuChoice();
     }
 }

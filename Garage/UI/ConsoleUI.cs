@@ -16,8 +16,8 @@ namespace Garage.UI
     {
         public void DisplayMainMenu()
         {
-                Console.WriteLine("\nGARAGE - MAIN MENU");
-                Console.WriteLine("" 
+                PrintMessage("\nGARAGE - MAIN MENU (Choice 0-5)");
+                PrintMessage("" 
                     + "\n1. List all vehicles in the garage"
                     + "\n2. List all vehicle types in the garage"
                     + "\n3. Add vehicle to or Remove vehicle from the garage"
@@ -26,20 +26,27 @@ namespace Garage.UI
                     + "\n0. Exit the application");
         }
 
-        public char MenuChoice()
+        public static char MenuChoice()
         {
             char input = ' '; //Creates the character input to be used with the switch-case below.
             try //Tries to set input to the first char in an input line
             {
-                Console.Write("\nEnter Your Choice (0-5): ");
+                PrintMessage("\nEnter Your Choice: ");
                 input = Console.ReadLine()![0]; 
                 return input;
             }
             catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
             {
-                
                 return ' ';
             }
+        }
+        internal static void DisplayUpdateMenu()
+        {
+            PrintMessage("\nGARAGE - VEHICLE UPDATE MENU (Choice 0-2)");
+            PrintMessage(""
+                + "\n1. Add vehicle to the garage"
+                + "\n2. Remove vehicle from the garage"
+                + "\n0. Exit to the Main Menu");
         }
 
         public static void PrintMessage(string message)
@@ -119,6 +126,31 @@ namespace Garage.UI
             } while (true);
         }
 
+        public static int AskForPositiveInt(string prompt)
+        {
+            do
+            {
+                string input = AskForString(prompt);
+                if (int.TryParse(input, out int result))
+                {
+                    if (result > 0)
+                    {
+                        return result;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Please enter a valid {prompt}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Please enter a valid {prompt}");
+                }
+
+
+            } while (true);
+        }
+
         public static uint AskForUInt(string prompt)
         {
             do
@@ -136,7 +168,15 @@ namespace Garage.UI
 
             } while (true);
         }
+
+        internal static void DisplayTypeMenu()
+        {
+            PrintMessage("\nGARAGE - ADD VEHICLE TYPE MENU (Choice 0-2)");
+            PrintMessage(""
+                + "\n1. Car"
+                + "\n2. Bus"
+                + "\n3. Motorcycle"
+                + "\n0. Exit");
+        }
     }
-
-
 }
