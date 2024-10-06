@@ -28,7 +28,7 @@ namespace Garage.UI
 
         public static char MenuChoice()
         {
-            char input = ' '; //Creates the character input to be used with the switch-case below.
+            char input = ' '; //Creates the character input to be used.
             try //Tries to set input to the first char in an input line
             {
                 PrintMessage("\nEnter Your Choice: ");
@@ -37,7 +37,7 @@ namespace Garage.UI
             }
             catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
             {
-                return ' ';
+                return ' '; //TODO Maybe change this
             }
         }
         internal static void DisplayUpdateMenu()
@@ -67,7 +67,7 @@ namespace Garage.UI
             do
             {
                 Console.Write($"{prompt}:");
-                answer = Console.ReadLine();
+                answer = Console.ReadLine()!;
 
                 if (string.IsNullOrWhiteSpace(answer))
                 {
@@ -81,24 +81,6 @@ namespace Garage.UI
             } while (!success);
 
             return answer;
-        }
-
-        public static int AskForInt(string prompt)
-        {
-            do
-            {
-                string input = AskForString(prompt);
-                if (int.TryParse(input, out int result))
-                {
-                    return result;
-                }
-                else
-                {
-                    Console.WriteLine($"Please enter a valid {prompt}");
-                }
-
-
-            } while (true);
         }
 
         public static int AskForCapacity(string prompt)
@@ -141,24 +123,6 @@ namespace Garage.UI
                     {
                         Console.WriteLine($"Please enter a valid {prompt}");
                     }
-                }
-                else
-                {
-                    Console.WriteLine($"Please enter a valid {prompt}");
-                }
-
-
-            } while (true);
-        }
-
-        public static uint AskForUInt(string prompt)
-        {
-            do
-            {
-                string input = AskForString(prompt);
-                if (uint.TryParse(input, out uint result))
-                {
-                    return result;
                 }
                 else
                 {

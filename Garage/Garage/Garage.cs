@@ -25,7 +25,6 @@ namespace Garage.Garage
         { 
             this.Vehicles = new Vehicle[capacity];
             SeedData();
-
         }
 
         private void SeedData()
@@ -80,24 +79,21 @@ namespace Garage.Garage
                     ConsoleUI.PrintMessage($"RegistrationID {registrationId} is not in the garage!");
             }
         }
-
+        //Display Vehicle types and their number
         public void ListAllTypes()
         {
-            //TODO Clean up here
-            //var q = Vehicles 
-            //    .Where(v => v != null)
-            //    .OrderBy(p => p?.GetType().Name ?? null)
-            //    .Select(p => p.GetType().Name)
             var q = Vehicles
                     .Where(v => v != null)
                     .GroupBy(p => p?.GetType().Name ?? null);
-            //IEnumerable query = Vehicles.OrderBy(p => p?.RegistrationId ?? null);
+
             foreach (var type in q)
             {
                 ConsoleUI.PrintMessage($"{type.Key} : Antal {type.Count()}");
             }
         }
 
+        //Search method using a collection of user input strings
+        //Returns a collection of matching vehicles
         public IEnumerable<Vehicle> Search(IEnumerable<string> searchString)
         {
             var query = Vehicles
@@ -105,14 +101,13 @@ namespace Garage.Garage
             .Where(v => searchString.Any(y => 
                 v.RegistrationId.Equals(y) ||
                 v.Color.Equals(y) ||
-                v.NrOfWheels.ToString().Equals(y)));
+                v.NrOfWheels.ToString().Equals(y) ||
+                v.GetType().Name.ToUpper().Equals(y)
+                ));
             return query;
-            //foreach (var type in query)
-            //{
-            //    ConsoleUI.PrintMessage(type.ToString());
-            //}
         }
 
+        //GetEnumerator to be able to use foreach on instances
         public IEnumerator<T> GetEnumerator()
         {
             foreach (T item in Vehicles)
@@ -122,6 +117,7 @@ namespace Garage.Garage
             }
         }
         
+        //Display all items in the Garage
         public override string ToString() 
         {
             string s = "";
@@ -135,6 +131,7 @@ namespace Garage.Garage
             return "List of parked vehicles: \n"+s;
         }
 
+        //Count number vehicles in the Garage
         public int Counter()
         {
             int count = 0;
@@ -147,6 +144,5 @@ namespace Garage.Garage
             }
             return count;
         }
-
     }
 }

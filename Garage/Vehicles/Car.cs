@@ -16,7 +16,6 @@ namespace Garage.Vehicles
         {
             FuelType = fuelType.ToUpper();
         }
-
         public string FuelType { get; }
 
         public override string ToString()

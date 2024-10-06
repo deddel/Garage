@@ -10,38 +10,15 @@ namespace Garage
     {
         static void Main(string[] args)
         {
-            //Testcode
-            //string?[] s = new string[5];
-            //s[0] = "3";
-            //s[1] = "7";
-            //s[1] = null;
-            //Console.WriteLine(s[1]);
-
-            // Initiate app
-            ConsoleUI ui = new();
-            //GarageHandler.GarageHandler gh = new ();
-            ////Testcode
-            //var myGarage = new Garage<Vehicle>(9);
             
-            //myGarage.AddVehicle(new Car("KKW479", "blue", 4, "Diesel"));
-            //myGarage.AddVehicle(new Car("PDS873", "black", 4, "Petrol"));
-            //myGarage.AddVehicle(new Car("TRU834", "red", 4, "Petrol"));
-            //myGarage.AddVehicle(new Car("UJE345", "silver", 4, "Petrol"));
-            //myGarage.AddVehicle(new Motorcycle("IUY234", "red", 2, 750));
-            //myGarage.AddVehicle(new Motorcycle("IUY234", "yellow", 2, 125));
-            //myGarage.AddVehicle(new Bus("TRU834", "white", 6, 63));
-            //myGarage.AddVehicle(new Bus("YTR475", "red", 4, 46));
-            //myGarage.AddVehicle(new Bus("UJE345", "green", 4, 52));
-
-            //var query = from v in myGarage
-            //            where v.RegistrationID == "KKW479"
-            //            select v;
+            // Initialize UI
+            ConsoleUI ui = new();
 
             while (true)
             {
-                ui.DisplayMainMenu();
+                ui.DisplayMainMenu(); 
                 
-                char input = ConsoleUI.MenuChoice();
+                char input = ConsoleUI.MenuChoice(); // Get menu choice 
 
                 switch (input)
                 {

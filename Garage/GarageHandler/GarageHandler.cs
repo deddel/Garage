@@ -12,7 +12,7 @@ using Garage.Vehicles;
 
 namespace Garage.GarageHandler
 {
-    public class GarageHandler
+    public class GarageHandler: IHandler
     {
         
 
@@ -20,6 +20,7 @@ namespace Garage.GarageHandler
 
         public static Garage<Vehicle>? TheGarage { get => theGarage; set => theGarage = value; }
         
+        //Creates a new instance of the Garage with predefined vehicles
         public static void CreateNewGarage() 
         {
             var capacity = ConsoleUI.AskForCapacity("Input the capacity (Minimum 9) :");
@@ -27,31 +28,45 @@ namespace Garage.GarageHandler
             ConsoleUI.PrintMessage($"Created a new Garage:\n{theGarage}");
         }
         
+        //Display all vehicles and data
         public static void ListAllVehicles() 
         {
-            if (theGarage != null)
+            ConsoleUI.ClearConsole();
+            if (theGarage == null)
+            {
+                ConsoleUI.PrintMessage("Please create a garage first!");
+            }
+            else
+            {
                 ConsoleUI.PrintMessage($"{theGarage}");
+            }
         }
-
+        
+        //Display all vehicle types and the number of each
         public static void ListAllVehicleTypes ()
         {
-            theGarage?.ListAllTypes();
-            //if (theGarage != null)
-            //{
-            //    theGarage.ListAllTypes();
-            //}
-        } 
-
+            ConsoleUI.ClearConsole();
+            if (theGarage == null)
+                ConsoleUI.PrintMessage("Please create a garage first!");
+            else
+                theGarage?.ListAllTypes();
+        }
+        
+        //Add or remove vehicles 
         public static void UpdateVehicles() 
         {
+            ConsoleUI.ClearConsole();
+            if (theGarage == null)
+                ConsoleUI.PrintMessage("Please create a garage first!");
             bool isUpdating = true;
-            while (theGarage != null && isUpdating)
+            while (theGarage != null && isUpdating) 
             {
                 ConsoleUI.ClearConsole();
                 if (theGarage.IsFull) 
                 { 
                     ConsoleUI.PrintMessage("The Garage is full. Please remove a vehicle before you can add!"); 
                 }
+                
                 ConsoleUI.DisplayUpdateMenu();
                 char input =  ConsoleUI.MenuChoice();
                 string registrationId;
@@ -124,7 +139,8 @@ namespace Garage.GarageHandler
                 }
             }
         }
-
+        
+        //Search for vehicles on any search terms matching Vehicle properties
         public static void SearchForVehicles() 
         {
             if (theGarage == null)
@@ -133,22 +149,24 @@ namespace Garage.GarageHandler
             }
             else
             {
+                //take input strings, convert to uppercase and store them in a list
                 string[] searchStrings = ConsoleUI.AskForString("Enter search words").Split(' ');
                 IEnumerable<string> ucSearchStrings = searchStrings.Select(s => s.ToUpper());
+                //Get the matching vehicles
                 var query=theGarage?.Search(ucSearchStrings);
-                if (query != null)
-                    if (query.Any())
+                if (query != null) 
+                    if (query.Any()) // If there is any match
                     {
-                        foreach (var type in query)
+                        foreach (var v in query)
                         {
-                            ConsoleUI.PrintMessage(type.ToString());
+                            //Display matching vehicles
+                            ConsoleUI.PrintMessage(v.ToString());
                         }
                     }
                     else
                     {
                         ConsoleUI.PrintMessage("No match");
                     }
-
             }
         }
 
