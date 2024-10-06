@@ -97,7 +97,21 @@ namespace Garage.Garage
                 ConsoleUI.PrintMessage($"{type.Key} : Antal {type.Count()}");
             }
         }
-        
+
+        public IEnumerable<Vehicle> Search(IEnumerable<string> searchString)
+        {
+            var query = Vehicles
+            .Where(v => v != null)
+            .Where(v => searchString.Any(y => 
+                v.RegistrationId.Equals(y) ||
+                v.Color.Equals(y) ||
+                v.NrOfWheels.ToString().Equals(y)));
+            return query;
+            //foreach (var type in query)
+            //{
+            //    ConsoleUI.PrintMessage(type.ToString());
+            //}
+        }
 
         public IEnumerator<T> GetEnumerator()
         {

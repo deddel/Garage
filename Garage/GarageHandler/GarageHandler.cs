@@ -127,10 +127,29 @@ namespace Garage.GarageHandler
 
         public static void SearchForVehicles() 
         {
-            //TODO Implement
-            //Menu i UI
-            //Val i UI
-            //Metod i Garage
+            if (theGarage == null)
+            {
+                ConsoleUI.PrintMessage("There is no garage. Please create a garage first!");
+            }
+            else
+            {
+                string[] searchStrings = ConsoleUI.AskForString("Enter search words").Split(' ');
+                IEnumerable<string> ucSearchStrings = searchStrings.Select(s => s.ToUpper());
+                var query=theGarage?.Search(ucSearchStrings);
+                if (query != null)
+                    if (query.Any())
+                    {
+                        foreach (var type in query)
+                        {
+                            ConsoleUI.PrintMessage(type.ToString());
+                        }
+                    }
+                    else
+                    {
+                        ConsoleUI.PrintMessage("No match");
+                    }
+
+            }
         }
 
 

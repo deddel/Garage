@@ -40,6 +40,7 @@ namespace Garage
             while (true)
             {
                 ui.DisplayMainMenu();
+                
                 char input = ConsoleUI.MenuChoice();
 
                 switch (input)
