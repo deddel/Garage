@@ -36,7 +36,7 @@ namespace Garage.Garage
             this.Vehicles[4] = new Motorcycle("IUY234", "red", 2, 750);
             this.Vehicles[5] = new Motorcycle("TOR734", "yellow", 2, 125);
             this.Vehicles[6] = new Bus("TRU834", "white", 6, 63);
-            this.Vehicles[7] = new Bus("YTR475", "red", 4, 46);
+            this.Vehicles[7] = new Bus("YTR475", "red", 6, 46);
             this.Vehicles[8] = new Bus("UJE348", "green", 4, 52);
         }
 
@@ -88,7 +88,7 @@ namespace Garage.Garage
 
             foreach (var type in q)
             {
-                ConsoleUI.PrintMessage($"{type.Key} : Antal {type.Count()}");
+                ConsoleUI.PrintMessage($"{type.Key} : Count {type.Count()}");
             }
         }
 

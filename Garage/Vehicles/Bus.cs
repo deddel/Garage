@@ -12,7 +12,6 @@ namespace Garage.Vehicles
 {
     public class Bus : Vehicle
     {
-        
         public Bus(string registrationId, string color, int nrOfWheels, int seats) : base(registrationId, color, nrOfWheels)
         {
             Seats = seats;
