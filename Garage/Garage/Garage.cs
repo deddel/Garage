@@ -32,7 +32,7 @@ namespace Garage.Garage
             this.Vehicles[0] = new Car("KKW479", "blue", 4, "Diesel");
             this.Vehicles[1] = new Car("PDS873", "silver", 4, "Petrol");
             this.Vehicles[2] = new Car("TRU834", "red", 4, "Petrol");
-            this.Vehicles[3] = new Car("WKK974", "black", 4, "Petrol");
+            this.Vehicles[3] = new Car("WKK863", "black", 4, "Petrol");
             this.Vehicles[4] = new Motorcycle("IUY234", "red", 2, 750);
             this.Vehicles[5] = new Motorcycle("TOR734", "yellow", 2, 125);
             this.Vehicles[6] = new Bus("TRU834", "white", 6, 63);
